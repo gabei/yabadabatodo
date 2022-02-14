@@ -1,4 +1,4 @@
-import { createElement, addClass } from '../../ui/ui';
+import { createElement } from '../../ui/ui';
 import './Nav.scss';
 
 const Nav = createElement('div', 'Nav');

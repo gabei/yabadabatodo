@@ -1,2 +1,2 @@
-import { createElement, addClass } from '../../ui/ui';
+import { createElement } from '../../ui/ui';
 import './WorkArea.scss';
