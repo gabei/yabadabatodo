@@ -1,2 +1,8 @@
 @use '../../style/variables.scss' as variables;
 @use '../../style/mixins.scss' as mixins;
+
+.Nav {
+  display: grid;
+  justify-content: flex-start;
+  padding: 3rem;
+}
