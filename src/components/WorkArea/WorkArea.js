@@ -1,2 +1,2 @@
 import { createElement, addClass } from '../../ui/ui';
-import './Sidebar.scss';
+import './WorkArea.scss';
