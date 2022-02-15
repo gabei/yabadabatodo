@@ -1,0 +1,8 @@
+@use '../../style/variables.scss' as variables;
+@use '../../style/mixins.scss' as mixins;
+
+.WorkArea {
+  background: powderblue;
+  padding: 3rem;
+  flex-grow: 1;
+}

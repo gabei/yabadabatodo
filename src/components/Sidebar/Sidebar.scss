@@ -1,0 +1,8 @@
+@use '../../style/variables.scss' as variables;
+@use '../../style/mixins.scss' as mixins;
+
+.Sidebar {
+  background: royalblue;
+  padding: 2rem;
+  width: 33.33%;
+}

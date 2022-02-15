@@ -2,5 +2,6 @@
 @use '../style/mixins.scss' as mixins;
 
 .Container {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
 }
