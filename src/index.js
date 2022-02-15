@@ -1,7 +1,4 @@
-import Nav from './components/Nav/Nav';
-
+import Container from './Container/Container.js';
 import './style/main.scss';
 
-console.log('Hello world!');
-
-document.body.append(Nav);
+document.body.append(Container);
