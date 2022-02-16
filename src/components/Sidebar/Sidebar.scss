@@ -15,5 +15,23 @@
 
   &__list {
     list-style-type: none;
+    & li {
+      margin: 0.5rem 0;
+    }
+    margin-bottom: 0.5rem;
+  }
+
+  &__button {
+    &:before {
+      content: '+';
+      display: inline-block;
+      margin-right: 0.5rem;
+
+      transition: variables.$default-hover-time;
+    }
+    &:hover {
+      color: variables.$orange--dark;
+      cursor: pointer;
+    }
   }
 }
