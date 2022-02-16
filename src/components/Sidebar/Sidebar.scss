@@ -4,7 +4,16 @@
 .Sidebar {
   background: variables.$grey--light;
   padding: 2rem;
-  width: 25%;
+  width: 25rem;
   height: 93vh;
-  display: flex;
+  justify-content: flex-end;
+
+  &__title {
+    color: variables.$grey--dark;
+    font-weight: 400;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
 }
