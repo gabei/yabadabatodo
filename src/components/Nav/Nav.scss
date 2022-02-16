@@ -5,6 +5,12 @@
   width: 100%;
   display: grid;
   justify-content: flex-start;
-  padding: 3rem;
-  background-color: purple;
+  padding: 2rem;
+  background-color: variables.$orange;
+
+  &__logo {
+    & img {
+      width: 30%;
+    }
+  }
 }
