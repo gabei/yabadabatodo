@@ -3,8 +3,8 @@
 
 .Nav {
   width: 100%;
-  display: grid;
-  justify-content: flex-start;
+  display: flex;
+  align-items: center;
   padding: 2rem;
   background-color: variables.$orange;
 
