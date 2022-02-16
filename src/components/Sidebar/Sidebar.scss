@@ -2,8 +2,9 @@
 @use '../../style/mixins.scss' as mixins;
 
 .Sidebar {
-  background: royalblue;
+  background: variables.$grey--light;
   padding: 2rem;
   width: 25%;
   height: 93vh;
+  display: flex;
 }
