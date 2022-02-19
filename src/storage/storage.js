@@ -30,3 +30,5 @@ function initStorage() {
 function getLocalStorage() {
   console.log('Data pulled from local stroage.');
 }
+
+export { initStorage };
