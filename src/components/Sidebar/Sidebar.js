@@ -21,6 +21,15 @@ projectList.forEach((item) => {
 
 const newProjectButton = createElement('a', 'Sidebar__button');
 newProjectButton.textContent = 'Add Project';
+newProjectButton.addEventListener('click', showProjectInput);
 Sidebar.append(newProjectButton);
+
+const newProjectInput = createElement('input', 'display-none');
+newProjectInput.type = 'text';
+list.append(newProjectInput);
+
+function showProjectInput() {
+  newProjectInput.classList.remove('display-none');
+}
 
 export default Sidebar;
