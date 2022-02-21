@@ -20,17 +20,17 @@ projectList.forEach((item) => {
   list.append(project);
 });
 
-const newProjectButton = createElement('a', 'Sidebar__button');
-newProjectButton.textContent = 'Add Project';
-newProjectButton.addEventListener('click', showProjectInput);
-Sidebar.append(newProjectButton);
-
 const projectInputContainer = createElement(
   'div',
   'Sidebar__project-input',
   'display-none'
 );
-list.append(projectInputContainer);
+Sidebar.append(projectInputContainer);
+
+const newProjectButton = createElement('a', 'Sidebar__button');
+newProjectButton.textContent = 'Add Project';
+newProjectButton.addEventListener('click', showProjectInput);
+Sidebar.append(newProjectButton);
 
 const cancelButton = createElement(
   'button',
