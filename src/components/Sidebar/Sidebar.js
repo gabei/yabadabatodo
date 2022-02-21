@@ -31,19 +31,33 @@ const projectInputContainer = createElement(
 );
 list.append(projectInputContainer);
 
-const cancelButton = createElement('button');
+const cancelButton = createElement(
+  'button',
+  'Sidebar__project-input__button--cancel'
+);
 cancelButton.textContent = 'x';
 cancelButton.addEventListener('click', hideProjectInput);
 
+const submitButton = createElement(
+  'button',
+  'Sidebar__project-input__button--submit'
+);
+submitButton.textContent = '✓';
+submitButton.addEventListener('click', submitProjectInput);
+
 const newProjectInput = createElement('input');
 newProjectInput.type = 'text';
-projectInputContainer.append(newProjectInput, cancelButton);
+projectInputContainer.append(newProjectInput, submitButton, cancelButton);
 
 function showProjectInput() {
   projectInputContainer.classList.remove('display-none');
 }
 function hideProjectInput() {
   projectInputContainer.classList.add('display-none');
+}
+
+function submitProjectInput() {
+  console.log('Project name submitted');
 }
 
 export default Sidebar;
