@@ -11,15 +11,6 @@ Sidebar.append(title);
 const list = createElement('ul', 'Sidebar__list');
 Sidebar.append(list);
 
-/* Temporary projects list for styling. Will draw from storage later. */
-const projectList = ['Project1', 'Project2', 'Project3', 'Project4'];
-
-projectList.forEach((item) => {
-  let project = createElement('li');
-  project.textContent = item;
-  list.append(project);
-});
-
 const projectInputContainer = createElement(
   'div',
   'Sidebar__project-input',
@@ -65,6 +56,9 @@ function submitProjectInput() {
   let projectName = inputSource.value;
 
   createProject(projectName);
+
+  inputSource.textContent = '';
+  hideProjectInput();
 }
 
 export { Sidebar, list };
