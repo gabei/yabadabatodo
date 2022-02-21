@@ -24,12 +24,26 @@ newProjectButton.textContent = 'Add Project';
 newProjectButton.addEventListener('click', showProjectInput);
 Sidebar.append(newProjectButton);
 
-const newProjectInput = createElement('input', 'display-none');
+const projectInputContainer = createElement(
+  'div',
+  'Sidebar__project-input',
+  'display-none'
+);
+list.append(projectInputContainer);
+
+const cancelButton = createElement('button');
+cancelButton.textContent = 'x';
+cancelButton.addEventListener('click', hideProjectInput);
+
+const newProjectInput = createElement('input');
 newProjectInput.type = 'text';
-list.append(newProjectInput);
+projectInputContainer.append(newProjectInput, cancelButton);
 
 function showProjectInput() {
-  newProjectInput.classList.remove('display-none');
+  projectInputContainer.classList.remove('display-none');
+}
+function hideProjectInput() {
+  projectInputContainer.classList.add('display-none');
 }
 
 export default Sidebar;

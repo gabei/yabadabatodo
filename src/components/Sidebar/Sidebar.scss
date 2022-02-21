@@ -35,6 +35,21 @@
     }
   }
 
-  & input {
+  &__project-input {
+    & button {
+      font-weight: 800;
+      color: variables.$white;
+      background: red;
+      border-radius: 3px;
+      padding: 2px 6px;
+      margin-left: 5px;
+      transition: variables.$default-hover-time;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+        background-color: variables.$yellow;
+      }
+    }
   }
 }
