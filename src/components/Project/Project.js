@@ -10,31 +10,29 @@ export default class Project {
     this.tasks = tasks || new Array();
   }
 
-  get title(){
+  getTitle() {
     return this.title;
   }
 
-  get tasks(){
+  getTasks() {
     return this.tasks;
   }
 
-  set title(newTitle){
+  setTitle(newTitle) {
     if (!newTitle) return;
     this.title = newTitle;
   }
 
-  set tasks(...newTasks){
-    if(!newTasks) return;
+  setTasks(...newTasks) {
+    if (!newTasks) return;
     this.tasks = [...this.tasks, ...newTasks];
-}
+  }
 
-removeTask(taskToRemove){
-  const newTaskList = 
-    this.tasks.filter(function(task){
+  removeTask(taskToRemove) {
+    const newTaskList = this.tasks.filter(function (task) {
       return task != taskToRemove;
     });
-  
-    this.tasks = newTaskList;
-}
 
+    this.tasks = newTaskList;
+  }
 }

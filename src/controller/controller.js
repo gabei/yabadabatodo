@@ -1,9 +1,20 @@
-function createProject() {
-  //create a new project name and add it to storage
+import Project from '../components/Project/Project';
+import { list } from '../components/Sidebar/Sidebar';
+import { createElement } from '../ui/ui';
+
+function createProject(title) {
+  let project = new Project(title);
+  addProjectToView(project);
+  return project;
 }
 
-function addProjectToView() {
-  // create project information in the sidebar with event listeners
+function addProjectToView(project) {
+  console.log(list);
+  //get project title
+  let link = createElement('li');
+  link.textContent = project.getTitle();
+  link.addEventListener('click', showProject);
+  list.append(link);
 }
 
 function removeProject() {
@@ -31,9 +42,11 @@ function removeTaskFromView() {
 }
 
 function showProject() {
-  // show the selected project in the work area
+  console.log('Project view updated.');
 }
 
 function showTask() {
   // show a detailed view of the selected task
 }
+
+export { createProject, addProjectToView, removeProject };

@@ -1,4 +1,5 @@
 import { createElement } from '../../ui/ui';
+import { createProject } from '../../controller/controller';
 import './Sidebar.scss';
 
 const Sidebar = createElement('div', 'Sidebar');
@@ -49,6 +50,9 @@ const newProjectInput = createElement('input');
 newProjectInput.type = 'text';
 projectInputContainer.append(newProjectInput, submitButton, cancelButton);
 
+/* Functions for hiding and submitting 
+   info from the sidebar
+_______________________________________________*/
 function showProjectInput() {
   projectInputContainer.classList.remove('display-none');
 }
@@ -57,7 +61,10 @@ function hideProjectInput() {
 }
 
 function submitProjectInput() {
-  console.log('Project name submitted');
+  let inputSource = projectInputContainer.querySelector('input');
+  let projectName = inputSource.value;
+
+  createProject(projectName);
 }
 
-export default Sidebar;
+export { Sidebar, list };
