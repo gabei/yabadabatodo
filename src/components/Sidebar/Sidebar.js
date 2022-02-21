@@ -54,10 +54,9 @@ function hideProjectInput() {
 function submitProjectInput() {
   let inputSource = projectInputContainer.querySelector('input');
   let projectName = inputSource.value;
+  inputSource.value = '';
 
   createProject(projectName);
-
-  inputSource.textContent = '';
   hideProjectInput();
 }
 
