@@ -9,8 +9,6 @@ function createProject(title) {
 }
 
 function addProjectToView(project) {
-  console.log(list);
-  //get project title
   let link = createElement('li');
   link.textContent = project.getTitle();
   link.addEventListener('click', showProject);
