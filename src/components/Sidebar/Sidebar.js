@@ -66,7 +66,7 @@ function submitProjectInput() {
 function addProjectToView(project) {
   let link = createElement('li');
   link.textContent = project.getTitle();
-  link.addEventListener('click', Controller.showProject());
+  link.addEventListener('click', Controller.showProject);
 
   list.append(link);
 }
