@@ -1,4 +1,11 @@
+/* Controller class
+----------------
+The controller handles task and project creation as well as the storage of data. This should be independent of the other components, which utilize this class as an intermediary.
+
+*/
+
 import Project from '../components/Project/Project';
+import Task from '../components/Task/Task';
 
 export default class Controller {
   static createProject(title) {

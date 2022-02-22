@@ -6,8 +6,6 @@ If local storage is not available, the UI should let the user know.
 
 */
 
-import { addProjectToView } from '../controller/controller';
-
 // variation on MDN's storage test function
 function storageIsAvailable() {
   try {
