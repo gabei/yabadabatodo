@@ -22,8 +22,8 @@ function updateStorage(project) {
   localStorage.setItem(project.getTitle(), JSON.stringify(project.getTasks()));
 }
 
-function removeProject() {
-  // remove project from storage
+function removeProject(project) {
+  localStorage.removeItem(project.getTitle());
 }
 
 function removeProjectFromView() {

@@ -6,6 +6,8 @@ If local storage is not available, the UI should let the user know.
 
 */
 
+import { addProjectToView } from '../controller/controller';
+
 // variation on MDN's storage test function
 function storageIsAvailable() {
   try {
@@ -28,7 +30,10 @@ function initStorage() {
 }
 
 function getLocalStorage() {
-  console.log('Data pulled from local stroage.');
+  let projects = { ...localStorage };
+  console.log(projects);
 }
+
+function populateFromStorage() {}
 
 export { initStorage };
