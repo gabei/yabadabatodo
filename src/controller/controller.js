@@ -53,6 +53,7 @@ export default class Controller {
 
   static showProject(project) {
     console.log('Project view updated.');
+    console.log(project);
   }
 
   static showTask() {
