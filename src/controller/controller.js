@@ -5,6 +5,8 @@ import { createElement } from '../ui/ui';
 function createProject(title) {
   let project = new Project(title);
   addProjectToView(project);
+  updateStorage(project);
+
   return project;
 }
 
@@ -12,7 +14,12 @@ function addProjectToView(project) {
   let link = createElement('li');
   link.textContent = project.getTitle();
   link.addEventListener('click', showProject);
+
   list.append(link);
+}
+
+function updateStorage(project) {
+  localStorage.setItem(project.getTitle(), JSON.stringify(project.getTasks()));
 }
 
 function removeProject() {
@@ -23,8 +30,9 @@ function removeProjectFromView() {
   // remove project from sidebar
 }
 
-function createTask() {
-  // create a new task and add to storage
+function createTask(project, task) {
+  project.setTasks(task);
+  updateStorage(project);
 }
 
 function addTaskToView() {
@@ -39,7 +47,11 @@ function removeTaskFromView() {
   // remove task from work area
 }
 
-function showProject() {
+function clearLocalStorage() {
+  localStorage.clear();
+}
+
+function showProject(project) {
   console.log('Project view updated.');
 }
 
