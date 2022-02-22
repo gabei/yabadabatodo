@@ -2,26 +2,27 @@ import { createElement } from '../../ui/ui';
 import Controller from '../../controller/controller';
 import './Sidebar.scss';
 
+/* Setup sidebar and basic elements
+_______________________________________________*/
+
 const Sidebar = createElement('div', 'Sidebar');
-
 const title = createElement('h4', 'Sidebar__title');
-title.textContent = 'Projects';
-Sidebar.append(title);
-
 const list = createElement('ul', 'Sidebar__list');
-Sidebar.append(list);
-
 const projectInputContainer = createElement(
   'div',
   'Sidebar__project-input',
   'display-none'
 );
-Sidebar.append(projectInputContainer);
-
 const newProjectButton = createElement('a', 'Sidebar__button');
+
+title.textContent = 'Projects';
 newProjectButton.textContent = 'Add Project';
 newProjectButton.addEventListener('click', showProjectInput);
-Sidebar.append(newProjectButton);
+
+Sidebar.append(title, list, projectInputContainer, newProjectButton);
+
+/* Setup 'add project' buttons
+_______________________________________________*/
 
 const cancelButton = createElement(
   'button',
@@ -42,8 +43,9 @@ newProjectInput.type = 'text';
 projectInputContainer.append(newProjectInput, submitButton, cancelButton);
 
 /* Functions for hiding and submitting 
-   info from the sidebar
+   info from the sidebar. Interacts with Controller class
 _______________________________________________*/
+
 function showProjectInput() {
   projectInputContainer.classList.remove('display-none');
 }
