@@ -10,6 +10,8 @@ const deleteProject = createElement('button', 'WorkArea__button--delete');
 
 WorkArea.append(title, taskList, editProject, deleteProject);
 
+//how do we get project information from Sidebar using Controller's properties?
+// Controller.currentProject
 function updateTitle(projectName) {
   title.textContent = projectName;
 }
