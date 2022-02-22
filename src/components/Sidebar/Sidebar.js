@@ -1,5 +1,5 @@
 import { createElement } from '../../ui/ui';
-import { createProject } from '../../controller/controller';
+import Controller from '../../controller/controller';
 import './Sidebar.scss';
 
 const Sidebar = createElement('div', 'Sidebar');
@@ -56,8 +56,17 @@ function submitProjectInput() {
   let projectName = inputSource.value;
   inputSource.value = '';
 
-  createProject(projectName);
+  let newProject = Controller.createProject(projectName);
+  addProjectToView(newProject);
   hideProjectInput();
+}
+
+function addProjectToView(project) {
+  let link = createElement('li');
+  link.textContent = project.getTitle();
+  link.addEventListener('click', Controller.showProject());
+
+  list.append(link);
 }
 
 export { Sidebar, list };
