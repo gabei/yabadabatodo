@@ -3,7 +3,7 @@ import Controller from '../../controller/controller';
 import TaskPopout from '../TaskPopout/TaskPopout';
 import './WorkArea.scss';
 
-// elements
+// setup elements
 const WorkArea = createElement('div', 'WorkArea');
 const titleContainer = createElement('div', 'WorkArea__title');
 const title = createElement('h2', 'WorkArea__title-text');
@@ -13,15 +13,14 @@ const taskList = createElement('ul', 'WorkArea__taskList');
 const taskPopout = createElement('div', 'WorkArea__taskPopout');
 WorkArea.append(titleContainer, taskList, taskPopout);
 
-// title section
+// setup title section
 title.textContent = 'Temp';
 title.append(deleteProject);
 editTitle.textContent = 'E';
 deleteProject.textContent = 'X';
 titleContainer.append(title, editTitle, deleteProject);
 
-// task list
-
+// workarea content update functions
 function updateWorkArea() {
   taskList.textContent = '';
   let project = Controller.currentProject;
@@ -70,6 +69,51 @@ function populateTaskPopout(task) {
   let date = task.getDueDate();
 
   taskPopout.textContent = `${title}, ${description}, ${date}`;
+}
+
+/////////////////////////
+// setup add task button
+const addTaskButton = createElement('a', 'WorkArea__newTaskContainer-button');
+addTaskButton.textContent = 'Add Task';
+addTaskButton.addEventListener('click', showNewTaskInput);
+WorkArea.append(addTaskButton);
+
+const newTaskInputContainer = createElement(
+  'div',
+  'WorkArea__newTaskContainer',
+  'display-none'
+);
+WorkArea.append(newTaskInputContainer);
+
+const cancelButton = createElement(
+  'button',
+  'WorkArea__newTaskContainer-button--cancel'
+);
+cancelButton.textContent = 'x';
+cancelButton.addEventListener('click', hideNewTaskInput);
+
+const submitButton = createElement(
+  'button',
+  'WorkArea__newTaskContainer-button--submit'
+);
+submitButton.textContent = '✓';
+submitButton.addEventListener('click', submitNewTaskInput);
+
+const newTaskInput = createElement('input');
+newTaskInput.type = 'text';
+newTaskInputContainer.append(newTaskInput, submitButton, cancelButton);
+
+// new task input functions
+function hideNewTaskInput() {
+  newTaskInputContainer.classList.add('display-none');
+}
+
+function showNewTaskInput() {
+  newTaskInputContainer.classList.remove('display-none');
+}
+
+function submitNewTaskInput() {
+  console.log('input submitted!');
 }
 
 export { WorkArea, updateWorkArea };
