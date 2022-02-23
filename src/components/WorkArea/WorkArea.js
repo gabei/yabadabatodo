@@ -3,14 +3,21 @@ import Controller from '../../controller/controller';
 import './WorkArea.scss';
 
 const WorkArea = createElement('div', 'WorkArea');
-const title = createElement('h2', 'WorkArea__title');
+const titleContainer = createElement('div', 'WorkArea__title');
+const title = createElement('h2', 'WorkArea__title-text');
+const editTitle = createElement('button', 'WorkArea__title-edit');
+const deleteProject = createElement('button', 'WorkArea__title-delete');
 const taskList = createElement('ul', 'WorkArea__taskList');
-const editProject = createElement('button', 'WorkArea__button--edit');
-const deleteProject = createElement('button', 'WorkArea__button--delete');
 const taskPopout = createElement('div', 'WorkArea__taskPopout');
-title.textContent = 'Temp';
 
-WorkArea.append(title, taskList, editProject, deleteProject, taskPopout);
+title.textContent = 'Temp';
+title.append(deleteProject);
+editTitle.textContent = 'E';
+deleteProject.textContent = 'X';
+
+titleContainer.append(title, editTitle, deleteProject);
+
+WorkArea.append(titleContainer, taskList, taskPopout);
 
 //how do we get project information from Sidebar using Controller's properties?
 // Controller.currentProject

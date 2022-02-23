@@ -4,4 +4,47 @@
 .WorkArea {
   padding: 3rem;
   flex-grow: 1;
+
+  &__title {
+    display: flex;
+    margin-bottom: 1.5rem;
+
+    & button {
+      border: none;
+      border-radius: 3px;
+      color: variables.$white;
+      margin-left: 1rem;
+      padding: 5px;
+      height: 50%;
+      cursor: pointer;
+      align-self: center;
+
+      transition: variables.$default-hover-time;
+
+      &:hover {
+        background: variables.$orange--dark;
+      }
+    }
+
+    &-edit {
+      background: variables.$yellow;
+    }
+    &-delete {
+      background: red;
+    }
+  }
+
+  &__taskList {
+    list-style-type: none;
+
+    & li {
+      cursor: pointer;
+      padding: 5px;
+      transition: variables.$default-hover-time;
+
+      &:hover {
+        background: variables.$grey--light;
+      }
+    }
+  }
 }
