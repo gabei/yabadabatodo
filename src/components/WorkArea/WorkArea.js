@@ -7,13 +7,14 @@ const title = createElement('h2', 'WorkArea__title');
 const taskList = createElement('ul', 'WorkArea__taskList');
 const editProject = createElement('button', 'WorkArea__button--edit');
 const deleteProject = createElement('button', 'WorkArea__button--delete');
+title.textContent = 'Temp';
 
 WorkArea.append(title, taskList, editProject, deleteProject);
 
 //how do we get project information from Sidebar using Controller's properties?
 // Controller.currentProject
-function updateTitle(projectName) {
-  title.textContent = projectName;
+function updateWorkArea(project) {
+  title.textContent = project.getTitle();
 }
 
-export default WorkArea;
+export { WorkArea, updateWorkArea };

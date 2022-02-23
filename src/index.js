@@ -3,7 +3,7 @@ import { createElement } from './ui/ui';
 
 import Nav from './components/Nav/Nav';
 import { Sidebar } from './components/Sidebar/Sidebar';
-import WorkArea from './components/WorkArea/WorkArea';
+import { WorkArea } from './components/WorkArea/WorkArea';
 
 import './style/main.scss';
 

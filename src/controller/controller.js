@@ -8,6 +8,7 @@ The constructor holds a 'current project' and 'current task' for the sake of pas
 
 import Project from '../components/Project/Project';
 import Task from '../components/Task/Task';
+import { updateWorkArea } from '../components/WorkArea/WorkArea';
 
 export default class Controller {
   constructor() {
@@ -63,8 +64,9 @@ export default class Controller {
   }
 
   static showProject(project) {
-    console.log('Project view updated.');
     this.currentProject = project;
+    updateWorkArea(project);
+    console.log('showProject fired!');
   }
 
   static showTask() {
