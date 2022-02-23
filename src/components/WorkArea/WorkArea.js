@@ -13,8 +13,24 @@ WorkArea.append(title, taskList, editProject, deleteProject);
 
 //how do we get project information from Sidebar using Controller's properties?
 // Controller.currentProject
-function updateWorkArea(project) {
-  title.textContent = project.getTitle();
+function updateWorkArea() {
+  taskList.textContent = '';
+  let project = Controller.currentProject;
+
+  updateTitle(project.getTitle());
+  populateTasks(project.getTasks());
+}
+
+function updateTitle(newTitle) {
+  title.textContent = newTitle;
+}
+
+function populateTasks(tasks) {
+  tasks.map((task) => {
+    let li = createElement('li');
+    li.textContent = task.getTitle();
+    taskList.append(li);
+  });
 }
 
 export { WorkArea, updateWorkArea };

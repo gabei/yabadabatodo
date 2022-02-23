@@ -65,8 +65,7 @@ export default class Controller {
 
   static showProject(project) {
     this.currentProject = project;
-    updateWorkArea(project);
-    console.log('showProject fired!');
+    updateWorkArea();
   }
 
   static showTask() {

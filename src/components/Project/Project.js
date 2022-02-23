@@ -3,11 +3,12 @@
 A Project harbors all of a user's Tasks. Projects can be added or removed from the user interface / storage. Projects can have their title edited.
 
 */
+import Task from '../Task/Task';
 
 export default class Project {
   constructor(title, tasks) {
     this.title = title || 'Unnamed Project';
-    this.tasks = tasks || new Array();
+    this.tasks = [new Task(title, 'Description')];
   }
 
   getTitle() {

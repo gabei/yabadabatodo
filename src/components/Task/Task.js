@@ -10,29 +10,29 @@ export default class Task {
     this.dueDate = dueDate || '';
   }
 
-  get title() {
+  getTitle() {
     return this.title;
   }
 
-  get description() {
+  getDescription() {
     return this.description;
   }
 
-  get dueDate() {
+  getDueDate() {
     return this.dueDate;
   }
 
-  set title(newTitle) {
+  setTitle(newTitle) {
     if (!newTitle) return;
     this.title = newTitle;
   }
 
-  set description(newDescription) {
+  setDescription(newDescription) {
     if (!newDescription) return;
     this.title = newDescription;
   }
 
-  set dueDate(newDate) {
+  setDueDate(newDate) {
     if (!newDate) return;
     this.title = newDate;
   }

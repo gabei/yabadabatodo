@@ -72,3 +72,6 @@ function addProjectToView(project) {
 }
 
 export { Sidebar, list };
+
+import Task from '../Task/Task';
+let testTask = new Task('test task', 'This is a test task');
