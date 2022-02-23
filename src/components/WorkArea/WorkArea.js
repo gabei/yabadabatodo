@@ -73,17 +73,16 @@ function populateTaskPopout(task) {
 
 /////////////////////////
 // setup add task button
-const addTaskButton = createElement('a', 'WorkArea__newTaskContainer-button');
-addTaskButton.textContent = 'Add Task';
-addTaskButton.addEventListener('click', showNewTaskInput);
-WorkArea.append(addTaskButton);
+const newTaskButton = createElement('a', 'WorkArea__newTaskContainer-button');
+newTaskButton.textContent = 'Add Task';
+newTaskButton.addEventListener('click', showNewTaskInput);
+WorkArea.append(newTaskButton);
 
 const newTaskInputContainer = createElement(
   'div',
   'WorkArea__newTaskContainer',
   'display-none'
 );
-WorkArea.append(newTaskInputContainer);
 
 const cancelButton = createElement(
   'button',
@@ -102,6 +101,7 @@ submitButton.addEventListener('click', submitNewTaskInput);
 const newTaskInput = createElement('input');
 newTaskInput.type = 'text';
 newTaskInputContainer.append(newTaskInput, submitButton, cancelButton);
+WorkArea.append(newTaskInputContainer, newTaskButton);
 
 // new task input functions
 function hideNewTaskInput() {
