@@ -1,7 +1,9 @@
 import { createElement } from '../../ui/ui';
 import Controller from '../../controller/controller';
+import TaskPopout from '../TaskPopout/TaskPopout';
 import './WorkArea.scss';
 
+// elements
 const WorkArea = createElement('div', 'WorkArea');
 const titleContainer = createElement('div', 'WorkArea__title');
 const title = createElement('h2', 'WorkArea__title-text');
@@ -9,18 +11,17 @@ const editTitle = createElement('button', 'WorkArea__title-edit');
 const deleteProject = createElement('button', 'WorkArea__title-delete');
 const taskList = createElement('ul', 'WorkArea__taskList');
 const taskPopout = createElement('div', 'WorkArea__taskPopout');
+WorkArea.append(titleContainer, taskList, taskPopout);
 
+// title section
 title.textContent = 'Temp';
 title.append(deleteProject);
 editTitle.textContent = 'E';
 deleteProject.textContent = 'X';
-
 titleContainer.append(title, editTitle, deleteProject);
 
-WorkArea.append(titleContainer, taskList, taskPopout);
+// task list
 
-//how do we get project information from Sidebar using Controller's properties?
-// Controller.currentProject
 function updateWorkArea() {
   taskList.textContent = '';
   let project = Controller.currentProject;
@@ -36,9 +37,18 @@ function updateTitle(newTitle) {
 
 function populateTasks(tasks) {
   tasks.map((task) => {
-    let li = createElement('li', 'WorkArea__taskList-item');
-    li.textContent = task.getTitle();
-    taskList.append(li);
+    let itemContainer = createElement('div', 'WorkArea__taskList-item');
+    let itemTitle = createElement('span', 'WorkArea__taskList-item--title');
+    let deleteButton = createElement(
+      'button',
+      'WorkArea__taskList-item--delete'
+    );
+
+    deleteButton.textContent = 'X';
+    itemTitle.textContent = task.getTitle();
+
+    itemContainer.append(itemTitle, deleteButton);
+    taskList.append(itemContainer);
   });
 }
 

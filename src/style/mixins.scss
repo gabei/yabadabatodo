@@ -1,0 +1,15 @@
+@use '../style/variables.scss' as variables;
+
+@mixin deleteButton {
+  color: variables.$white;
+  background: red;
+  border: none;
+  border-radius: 3px;
+  padding: 3px;
+  cursor: pointer;
+  transition: variables.$default-hover-time;
+
+  &:hover {
+    background: variables.$orange--dark;
+  }
+}

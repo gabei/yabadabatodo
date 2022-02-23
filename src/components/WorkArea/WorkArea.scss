@@ -30,20 +30,26 @@
       background: variables.$yellow;
     }
     &-delete {
-      background: red;
+      @include mixins.deleteButton;
     }
   }
 
   &__taskList {
     list-style-type: none;
 
-    & li {
+    &-item {
+      display: flex;
+      justify-content: space-between;
       cursor: pointer;
       padding: 5px;
       transition: variables.$default-hover-time;
 
       &:hover {
         background: variables.$grey--light;
+      }
+
+      &--delete {
+        @include mixins.deleteButton;
       }
     }
   }
