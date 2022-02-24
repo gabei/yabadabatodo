@@ -1,4 +1,5 @@
 import { createElement } from '../../ui/ui';
+import Task from '../Task/Task';
 import './TaskPopout.scss';
 
 const TaskPopout = createElement('div', 'TaskPopout');
@@ -12,3 +13,12 @@ const editDescription = createElement(
 );
 const editDueDate = createElement('button', 'TaskBar__button--editDueDate');
 const deleteTask = createElement('button', 'TaskBar__button--delete');
+
+TaskPopout.append(title, description);
+
+function updatePopout(task) {
+  title.textContent = task.getTitle();
+  description.textContent = task.getDescription();
+}
+
+export { TaskPopout, updatePopout };

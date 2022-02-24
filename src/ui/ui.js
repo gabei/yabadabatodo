@@ -17,4 +17,8 @@ function clear(element) {
   element.textContent = '';
 }
 
-export { createElement, addClass, clear };
+function insertAfter(newNode, targetNode) {
+  targetNode.parentNode.insertBefore(newNode, targetNode.nextSibling);
+}
+
+export { createElement, addClass, clear, insertAfter };

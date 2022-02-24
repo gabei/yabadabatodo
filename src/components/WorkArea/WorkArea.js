@@ -1,6 +1,6 @@
-import { createElement } from '../../ui/ui';
+import { createElement, insertAfter } from '../../ui/ui';
 import Controller from '../../controller/controller';
-import TaskPopout from '../TaskPopout/TaskPopout';
+import { TaskPopout, updatePopout } from '../TaskPopout/TaskPopout';
 import './WorkArea.scss';
 
 // setup elements
@@ -106,7 +106,8 @@ function submitNewTaskInput() {
   let taskName = inputSource.value;
   inputSource.value = '';
 
-  let newTask = Controller.createProject(taskName);
+  let newTask = Controller.createTask(Controller.currentProject, taskName);
+  console.log(newTask);
   addTaskToView(newTask);
   hideNewTaskInput();
 }
@@ -117,10 +118,20 @@ function addTaskToView(task) {
   let deleteButton = createElement('button', 'WorkArea__taskList-item--delete');
 
   deleteButton.textContent = 'X';
+  console.log(task);
   itemTitle.textContent = task.getTitle();
+
+  itemContainer.addEventListener('click', () => {
+    showTaskPopout(task);
+  });
 
   itemContainer.append(itemTitle, deleteButton);
   taskList.append(itemContainer);
+}
+
+function showTaskPopout(task) {
+  updatePopout(task);
+  insertAfter(TaskPopout, this);
 }
 
 export { WorkArea, updateWorkArea };
