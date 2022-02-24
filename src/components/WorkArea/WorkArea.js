@@ -36,18 +36,7 @@ function updateTitle(newTitle) {
 
 function populateTasks(tasks) {
   tasks.map((task) => {
-    let itemContainer = createElement('div', 'WorkArea__taskList-item');
-    let itemTitle = createElement('span', 'WorkArea__taskList-item--title');
-    let deleteButton = createElement(
-      'button',
-      'WorkArea__taskList-item--delete'
-    );
-
-    deleteButton.textContent = 'X';
-    itemTitle.textContent = task.getTitle();
-
-    itemContainer.append(itemTitle, deleteButton);
-    taskList.append(itemContainer);
+    addTaskToView(task);
   });
 }
 
@@ -122,22 +111,16 @@ function submitNewTaskInput() {
   hideNewTaskInput();
 }
 
-function submitProjectInput() {
-  let inputSource = projectInputContainer.querySelector('input');
-  let projectName = inputSource.value;
-  inputSource.value = '';
-
-  let newProject = Controller.createProject(projectName);
-  addProjectToView(newProject);
-  hideProjectInput();
-}
-
 function addTaskToView(task) {
-  let link = createElement('li');
-  link.textContent = task.getTitle();
-  link.addEventListener('click', () => Controller.showTask(task));
+  let itemContainer = createElement('div', 'WorkArea__taskList-item');
+  let itemTitle = createElement('span', 'WorkArea__taskList-item--title');
+  let deleteButton = createElement('button', 'WorkArea__taskList-item--delete');
 
-  taskList.append(link);
+  deleteButton.textContent = 'X';
+  itemTitle.textContent = task.getTitle();
+
+  itemContainer.append(itemTitle, deleteButton);
+  taskList.append(itemContainer);
 }
 
 export { WorkArea, updateWorkArea };
