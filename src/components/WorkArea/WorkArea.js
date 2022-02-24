@@ -113,7 +113,31 @@ function showNewTaskInput() {
 }
 
 function submitNewTaskInput() {
-  console.log('input submitted!');
+  let inputSource = newTaskInputContainer.querySelector('input');
+  let taskName = inputSource.value;
+  inputSource.value = '';
+
+  let newTask = Controller.createProject(taskName);
+  addTaskToView(newTask);
+  hideNewTaskInput();
+}
+
+function submitProjectInput() {
+  let inputSource = projectInputContainer.querySelector('input');
+  let projectName = inputSource.value;
+  inputSource.value = '';
+
+  let newProject = Controller.createProject(projectName);
+  addProjectToView(newProject);
+  hideProjectInput();
+}
+
+function addTaskToView(task) {
+  let link = createElement('li');
+  link.textContent = task.getTitle();
+  link.addEventListener('click', () => Controller.showTask(task));
+
+  taskList.append(link);
 }
 
 export { WorkArea, updateWorkArea };
