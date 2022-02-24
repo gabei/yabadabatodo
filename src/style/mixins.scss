@@ -1,8 +1,7 @@
 @use '../style/variables.scss' as variables;
 
-@mixin deleteButton {
+@mixin button($type) {
   color: variables.$white;
-  background: red;
   border: none;
   border-radius: 3px;
   padding: 3px;
@@ -11,5 +10,13 @@
 
   &:hover {
     background: variables.$orange--dark;
+  }
+
+  @if $type == delete {
+    background: red;
+  }
+
+  @if $type == edit {
+    background: variables.$yellow;
   }
 }

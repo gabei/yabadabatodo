@@ -10,27 +10,17 @@
     margin-bottom: 1.5rem;
 
     & button {
-      border: none;
-      border-radius: 3px;
-      color: variables.$white;
       margin-left: 1rem;
       padding: 5px;
       height: 50%;
-      cursor: pointer;
       align-self: center;
-
-      transition: variables.$default-hover-time;
-
-      &:hover {
-        background: variables.$orange--dark;
-      }
     }
 
     &-edit {
-      background: variables.$yellow;
+      @include mixins.button(edit);
     }
     &-delete {
-      @include mixins.deleteButton;
+      @include mixins.button(delete);
     }
   }
 
@@ -49,7 +39,7 @@
       }
 
       &--delete {
-        @include mixins.deleteButton;
+        @include mixins.button(delete);
       }
     }
   }
