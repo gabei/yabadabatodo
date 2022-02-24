@@ -107,7 +107,6 @@ function submitNewTaskInput() {
   inputSource.value = '';
 
   let newTask = Controller.createTask(Controller.currentProject, taskName);
-  console.log(newTask);
   addTaskToView(newTask);
   hideNewTaskInput();
 }
@@ -118,7 +117,6 @@ function addTaskToView(task) {
   let deleteButton = createElement('button', 'WorkArea__taskList-item--delete');
 
   deleteButton.textContent = 'X';
-  console.log(task);
   itemTitle.textContent = task.getTitle();
 
   itemContainer.addEventListener('click', () => {
