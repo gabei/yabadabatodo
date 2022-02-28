@@ -5,6 +5,7 @@ If Local Storage is available, user projects and tasks will be saved in JSON whe
 If local storage is not available, the UI should let the user know.
 
 */
+import { addProjectToView } from '../components/Sidebar/Sidebar';
 
 // variation on MDN's storage test function
 function storageIsAvailable() {

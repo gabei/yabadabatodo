@@ -71,7 +71,7 @@ function addProjectToView(project) {
   list.append(link);
 }
 
-export { Sidebar, list };
+export { Sidebar, list, addProjectToView };
 
 import Task from '../Task/Task';
 let testTask = new Task('test task', 'This is a test task');
