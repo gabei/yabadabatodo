@@ -8,7 +8,7 @@ import Task from '../Task/Task';
 export default class Project {
   constructor(title, tasks) {
     this.title = title || 'Unnamed Project';
-    this.tasks = [new Task(title, 'Description')];
+    this.tasks = tasks || new Array();
   }
 
   getTitle() {

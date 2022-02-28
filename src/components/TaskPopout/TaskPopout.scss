@@ -1,0 +1,12 @@
+@use '../../style/variables.scss' as variables;
+
+.TaskPopout {
+  border: 1px solid variables.$black;
+  padding: 1rem;
+
+  &__title {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid variables.$black;
+  }
+}

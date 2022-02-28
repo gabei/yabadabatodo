@@ -120,7 +120,6 @@ function addTaskToView(task) {
   itemTitle.textContent = task.getTitle();
 
   itemContainer.addEventListener('click', function () {
-    console.log(this);
     showTaskPopout(task, this);
   });
 
