@@ -119,17 +119,18 @@ function addTaskToView(task) {
   deleteButton.textContent = 'X';
   itemTitle.textContent = task.getTitle();
 
-  itemContainer.addEventListener('click', () => {
-    showTaskPopout(task);
+  itemContainer.addEventListener('click', function () {
+    console.log(this);
+    showTaskPopout(task, this);
   });
 
   itemContainer.append(itemTitle, deleteButton);
   taskList.append(itemContainer);
 }
 
-function showTaskPopout(task) {
+function showTaskPopout(task, node) {
   updatePopout(task);
-  insertAfter(TaskPopout, this);
+  insertAfter(TaskPopout, node);
 }
 
 export { WorkArea, updateWorkArea };
