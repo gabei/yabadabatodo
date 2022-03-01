@@ -44,14 +44,10 @@ function getLocalStorage() {
 }
 
 function populateTasks(project, tasks) {
-  let newTasks = [];
-
   for (let task of tasks) {
     let createdTask = new Task(task.title, task.description, task.dueDate);
-    newTasks = [newTasks, createdTask];
+    project.setTasks(createdTask);
   }
-
-  project.setTasks(newTasks);
 }
 
 function populateFromStorage() {}
