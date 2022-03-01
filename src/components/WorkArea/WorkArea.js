@@ -117,6 +117,11 @@ function addTaskToView(task) {
   let deleteButton = createElement('button', 'WorkArea__taskList-item--delete');
 
   deleteButton.textContent = 'X';
+  deleteButton.addEventListener('click', function (e) {
+    console.log('hello');
+    deleteTask(this);
+    e.stopPropagation();
+  });
   itemTitle.textContent = task.getTitle();
 
   itemContainer.addEventListener('click', function () {
@@ -127,9 +132,19 @@ function addTaskToView(task) {
   taskList.append(itemContainer);
 }
 
+function deleteTask(button) {
+  button.parentNode.remove();
+  hideTaskPopout();
+}
+
 function showTaskPopout(task, node) {
+  TaskPopout.classList.remove('display-none');
   updatePopout(task);
   insertAfter(TaskPopout, node);
+}
+
+function hideTaskPopout() {
+  TaskPopout.classList.add('display-none');
 }
 
 export { WorkArea, updateWorkArea };

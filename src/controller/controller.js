@@ -36,7 +36,9 @@ export default class Controller {
   }
 
   static removeProjectFromView() {
+    // remove project from work area
     // remove project from sidebar
+    // remove project from storage
   }
 
   static createTask(project, task) {
