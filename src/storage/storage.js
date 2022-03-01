@@ -33,18 +33,24 @@ function initStorage() {
 
 function getLocalStorage() {
   let projects = { ...localStorage };
+
   for (let project in projects) {
     let newProject = new Project(project);
-
+    addProjectToView(newProject);
     let tasks = JSON.parse(localStorage.getItem(project));
-    for (let task of tasks) {
-      let newTask = new Task({ ...task });
-      newProject.setTasks(newTask);
-    }
-    console.log(newProject);
+    populateTasks(newProject, tasks);
+  }
+}
+
+function populateTasks(project, tasks) {
+  let newTasks = [];
+
+  for (let task of tasks) {
+    let createdTask = new Task({ ...task });
+    newTasks = [newTasks, createdTask];
   }
 
-  console.log(projects);
+  project.setTasks(newTasks);
 }
 
 function populateFromStorage() {}
