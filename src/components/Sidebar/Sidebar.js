@@ -1,5 +1,6 @@
 import { createElement } from '../../ui/ui';
 import Controller from '../../controller/controller';
+import { clear } from '../../ui/ui';
 import './Sidebar.scss';
 
 /* Setup sidebar and basic elements
@@ -69,6 +70,10 @@ function addProjectToView(project) {
   link.addEventListener('click', () => Controller.showProject(project));
 
   list.append(link);
+}
+
+function removeProjectFromSidebar() {
+  let title = Controller.currentProject.getTitle();
 }
 
 export { Sidebar, list, addProjectToView };

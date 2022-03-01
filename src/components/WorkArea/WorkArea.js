@@ -1,6 +1,7 @@
 import { createElement, insertAfter } from '../../ui/ui';
 import Controller from '../../controller/controller';
 import { TaskPopout, updatePopout } from '../TaskPopout/TaskPopout';
+import { clear } from '../../ui/ui';
 import './WorkArea.scss';
 
 // setup elements
@@ -146,7 +147,9 @@ function deleteTask(button, task) {
 }
 
 function deleteProject() {
+  clear(WorkArea);
   Controller.removeProjectFromView();
+  Controller.removeProject(Controller.currentProject);
 }
 
 function showTaskPopout(task, node) {

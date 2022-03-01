@@ -8,8 +8,8 @@ The constructor holds a 'current project' and 'current task' for the sake of pas
 
 import Project from '../components/Project/Project';
 import Task from '../components/Task/Task';
-import { WorkArea, updateWorkArea } from '../components/WorkArea/WorkArea';
-import { clear } from '../ui/ui';
+import { list } from '../components/Sidebar/Sidebar';
+import { updateWorkArea } from '../components/WorkArea/WorkArea';
 
 export default class Controller {
   constructor() {
@@ -37,8 +37,14 @@ export default class Controller {
   }
 
   static removeProjectFromView() {
-    clear(WorkArea);
-    this.removeProject(this.currentProject);
+    let title = this.currentProject.getTitle();
+    let removed = list.querySelectorAll('li');
+
+    for (let item of removed) {
+      if (item.textContent == title) {
+        item.remove();
+      }
+    }
   }
 
   static createTask(project, task) {
