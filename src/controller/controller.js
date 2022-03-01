@@ -8,7 +8,8 @@ The constructor holds a 'current project' and 'current task' for the sake of pas
 
 import Project from '../components/Project/Project';
 import Task from '../components/Task/Task';
-import { updateWorkArea } from '../components/WorkArea/WorkArea';
+import { WorkArea, updateWorkArea } from '../components/WorkArea/WorkArea';
+import { clear } from '../ui/ui';
 
 export default class Controller {
   constructor() {
@@ -35,10 +36,9 @@ export default class Controller {
     localStorage.removeItem(project.getTitle());
   }
 
-  static removeProjectFromView(project) {
-    // remove project from work area
-    // remove project from sidebar
-    // removeProject(project);
+  static removeProjectFromView() {
+    clear(WorkArea);
+    this.removeProject(this.currentProject);
   }
 
   static createTask(project, task) {
@@ -52,10 +52,6 @@ export default class Controller {
   static removeTask(task) {
     this.currentProject.removeTask(task);
     this.updateStorage(this.currentProject);
-  }
-
-  static removeTaskFromView() {
-    // remove task from work area
   }
 
   static updateStorage(project) {
@@ -72,9 +68,5 @@ export default class Controller {
   static showProject(project) {
     this.currentProject = project;
     updateWorkArea();
-  }
-
-  static showTask() {
-    // show a detailed view of the selected task
   }
 }

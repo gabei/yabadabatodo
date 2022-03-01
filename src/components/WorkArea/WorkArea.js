@@ -8,7 +8,7 @@ const WorkArea = createElement('div', 'WorkArea');
 const titleContainer = createElement('div', 'WorkArea__title');
 const title = createElement('h2', 'WorkArea__title-text');
 const editTitle = createElement('button', 'WorkArea__title-edit');
-const deleteProject = createElement('button', 'WorkArea__title-delete');
+const deleteProjectButton = createElement('button', 'WorkArea__title-delete');
 const taskList = createElement('ul', 'WorkArea__taskList');
 const taskPopout = createElement('div', 'WorkArea__taskPopout');
 WorkArea.append(titleContainer, taskList, taskPopout);
@@ -17,8 +17,14 @@ WorkArea.append(titleContainer, taskList, taskPopout);
 title.textContent = 'Temp';
 title.append(deleteProject);
 editTitle.textContent = 'E';
-deleteProject.textContent = 'X';
-titleContainer.append(title, editTitle, deleteProject);
+
+deleteProjectButton.textContent = 'X';
+deleteProjectButton.addEventListener('click', function (e) {
+  deleteProject();
+  e.stopPropagation();
+});
+
+titleContainer.append(title, editTitle, deleteProjectButton);
 
 // workarea content update functions
 function updateWorkArea() {
@@ -137,6 +143,10 @@ function deleteTask(button, task) {
   hideTaskPopout();
 
   Controller.removeTask(task);
+}
+
+function deleteProject() {
+  Controller.removeProjectFromView();
 }
 
 function showTaskPopout(task, node) {
