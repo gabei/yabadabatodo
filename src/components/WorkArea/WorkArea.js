@@ -118,10 +118,10 @@ function addTaskToView(task) {
 
   deleteButton.textContent = 'X';
   deleteButton.addEventListener('click', function (e) {
-    console.log('hello');
-    deleteTask(this);
+    deleteTask(this, task);
     e.stopPropagation();
   });
+
   itemTitle.textContent = task.getTitle();
 
   itemContainer.addEventListener('click', function () {
@@ -132,9 +132,11 @@ function addTaskToView(task) {
   taskList.append(itemContainer);
 }
 
-function deleteTask(button) {
+function deleteTask(button, task) {
   button.parentNode.remove();
   hideTaskPopout();
+
+  Controller.removeTask(task);
 }
 
 function showTaskPopout(task, node) {

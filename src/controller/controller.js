@@ -35,10 +35,10 @@ export default class Controller {
     localStorage.removeItem(project.getTitle());
   }
 
-  static removeProjectFromView() {
+  static removeProjectFromView(project) {
     // remove project from work area
     // remove project from sidebar
-    // remove project from storage
+    // removeProject(project);
   }
 
   static createTask(project, task) {
@@ -49,8 +49,9 @@ export default class Controller {
     return newTask;
   }
 
-  static removeTask() {
-    // remove task from storage
+  static removeTask(task) {
+    this.currentProject.removeTask(task);
+    this.updateStorage(this.currentProject);
   }
 
   static removeTaskFromView() {
