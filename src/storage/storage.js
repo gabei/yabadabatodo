@@ -36,9 +36,10 @@ function getLocalStorage() {
 
   for (let project in projects) {
     let newProject = new Project(project);
-    addProjectToView(newProject);
     let tasks = JSON.parse(localStorage.getItem(project));
     populateTasks(newProject, tasks);
+    addProjectToView(newProject);
+    console.log(newProject);
   }
 }
 
@@ -46,7 +47,7 @@ function populateTasks(project, tasks) {
   let newTasks = [];
 
   for (let task of tasks) {
-    let createdTask = new Task({ ...task });
+    let createdTask = new Task(task.title, task.description, task.dueDate);
     newTasks = [newTasks, createdTask];
   }
 
