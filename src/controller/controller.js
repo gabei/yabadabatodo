@@ -10,6 +10,7 @@ import Project from '../components/Project/Project';
 import Task from '../components/Task/Task';
 import { list } from '../components/Sidebar/Sidebar';
 import { updateWorkArea } from '../components/WorkArea/WorkArea';
+import TaskModal from '../components/TaskModal/TaskModal';
 
 export default class Controller {
   constructor() {
@@ -74,5 +75,13 @@ export default class Controller {
   static showProject(project) {
     this.currentProject = project;
     updateWorkArea();
+  }
+
+  static showModal() {
+    TaskModal.classList.remove('display-none');
+  }
+
+  static hideModal() {
+    TaskModal.classList.add('display-none');
   }
 }
