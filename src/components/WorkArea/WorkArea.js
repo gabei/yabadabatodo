@@ -3,6 +3,7 @@ import Controller from '../../controller/controller';
 import { TaskPopout, updatePopout } from '../TaskPopout/TaskPopout';
 import { clear } from '../../ui/ui';
 import TaskModal from '../TaskModal/TaskModal';
+import Task from '../Task/Task';
 import './WorkArea.scss';
 
 // setup elements
@@ -161,6 +162,24 @@ function showTaskPopout(task, node) {
 
 function hideTaskPopout() {
   TaskPopout.classList.add('display-none');
+}
+
+/* Task Modal Input Submitting
+_____________________________________*/
+const taskSubmit = TaskModal.querySelector('.TaskModal__submit');
+console.log(taskSubmit);
+taskSubmit.addEventListener('click', submitNewTask);
+
+function submitNewTask(e) {
+  let inputs = TaskModal.querySelectorAll('input');
+  let vals = Array.from(inputs).map((entry) => entry.value);
+  let newTask = new Task(...vals);
+
+  Controller.createTask(Controller.currentProject, newTask);
+  addTaskToView(newTask);
+
+  hideModal();
+  e.preventDefault();
 }
 
 function showModal() {

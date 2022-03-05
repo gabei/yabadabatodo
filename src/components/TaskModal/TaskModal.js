@@ -1,6 +1,6 @@
 import { createElement } from '../../ui/ui';
 import Task from '../Task/Task';
-//import Controller from '../../controller/controller';
+import Controller from '../../controller/controller';
 import './TaskModal.scss';
 
 const TaskModal = createElement('div', 'TaskModal', 'display-none');
@@ -17,7 +17,6 @@ inputDescription.type = 'text';
 inputDate.type = 'text';
 
 submitButton.textContent = 'Create Task';
-submitButton.addEventListener('click', submitNewTask);
 
 TaskModalContainer.append(
   inputTitle,
@@ -25,19 +24,5 @@ TaskModalContainer.append(
   inputDate,
   submitButton
 );
-
-function submitNewTask(e) {
-  let inputs = TaskModal.querySelectorAll('input');
-  let vals = Array.from(inputs).map((entry) => entry.value);
-  let newTask = new Task(...vals);
-
-  //Controller.createTask(Controller.currentProject, newTask);
-  hideModal();
-  e.preventDefault();
-}
-
-function hideModal() {
-  TaskModal.classList.add('display-none');
-}
 
 export default TaskModal;
