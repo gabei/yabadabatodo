@@ -3,7 +3,7 @@ import Task from '../Task/Task';
 //import Controller from '../../controller/controller';
 import './TaskModal.scss';
 
-const TaskModal = createElement('div', ['TaskModal', 'display-none']);
+const TaskModal = createElement('div', 'TaskModal', 'display-none');
 const TaskModalContainer = createElement('div', 'TaskModal__container');
 TaskModal.append(TaskModalContainer);
 
@@ -32,8 +32,12 @@ function submitNewTask(e) {
   let newTask = new Task(...vals);
 
   //Controller.createTask(Controller.currentProject, newTask);
-
+  hideModal();
   e.preventDefault();
+}
+
+function hideModal() {
+  TaskModal.classList.add('display-none');
 }
 
 export default TaskModal;

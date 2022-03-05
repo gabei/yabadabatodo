@@ -2,6 +2,7 @@ import { createElement, insertAfter } from '../../ui/ui';
 import Controller from '../../controller/controller';
 import { TaskPopout, updatePopout } from '../TaskPopout/TaskPopout';
 import { clear } from '../../ui/ui';
+import TaskModal from '../TaskModal/TaskModal';
 import './WorkArea.scss';
 
 // setup elements
@@ -12,7 +13,7 @@ const editTitle = createElement('button', 'WorkArea__title-edit');
 const deleteProjectButton = createElement('button', 'WorkArea__title-delete');
 const taskList = createElement('ul', 'WorkArea__taskList');
 const taskPopout = createElement('div', 'WorkArea__taskPopout');
-WorkArea.append(titleContainer, taskList, taskPopout);
+WorkArea.append(titleContainer, taskList, taskPopout, TaskModal);
 
 // setup title section
 title.textContent = 'Temp';
@@ -71,7 +72,7 @@ function populateTaskPopout(task) {
 // setup add task button
 const newTaskButton = createElement('a', 'WorkArea__newTaskContainer-button');
 newTaskButton.textContent = 'Add Task';
-newTaskButton.addEventListener('click', showNewTaskInput);
+newTaskButton.addEventListener('click', showModal);
 WorkArea.append(newTaskButton);
 
 const newTaskInputContainer = createElement(
@@ -160,6 +161,14 @@ function showTaskPopout(task, node) {
 
 function hideTaskPopout() {
   TaskPopout.classList.add('display-none');
+}
+
+function showModal() {
+  TaskModal.classList.remove('display-none');
+}
+
+function hideModal() {
+  TaskModal.classList.add('display-none');
 }
 
 export { WorkArea, updateWorkArea };

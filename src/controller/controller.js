@@ -76,12 +76,4 @@ export default class Controller {
     this.currentProject = project;
     updateWorkArea();
   }
-
-  static showModal() {
-    TaskModal.classList.remove('display-none');
-  }
-
-  static hideModal() {
-    TaskModal.classList.add('display-none');
-  }
 }
