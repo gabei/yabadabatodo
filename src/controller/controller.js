@@ -48,11 +48,8 @@ export default class Controller {
   }
 
   static createTask(project, task) {
-    let newTask = new Task(task);
-    project.setTasks(newTask);
+    project.setTasks(task);
     this.updateStorage(project);
-
-    return newTask;
   }
 
   static removeTask(task) {

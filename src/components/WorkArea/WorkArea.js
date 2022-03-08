@@ -36,7 +36,7 @@ function updateWorkArea() {
 
   updateTitle(project.getTitle());
   populateTasks(project.getTasks());
-  attachClickListener();
+  //attachClickListener();
 }
 
 function updateTitle(newTitle) {
@@ -44,29 +44,9 @@ function updateTitle(newTitle) {
 }
 
 function populateTasks(tasks) {
-  tasks.map((task) => {
+  tasks.forEach((task) => {
     addTaskToView(task);
   });
-}
-
-function attachClickListener() {
-  taskList.addEventListener('click', getTaskInfo);
-}
-
-function getTaskInfo() {
-  if (event.target.nodeName === 'LI') {
-    let taskName = event.target.value;
-    let task = Controller.currentProject.getTasks()[taskName];
-    populateTaskPopout(task);
-  }
-}
-
-function populateTaskPopout(task) {
-  let title = task.getTitle();
-  let description = task.getDescription();
-  let date = task.getDueDate();
-
-  taskPopout.textContent = `${title}, ${description}, ${date}`;
 }
 
 /////////////////////////
@@ -75,50 +55,6 @@ const newTaskButton = createElement('a', 'WorkArea__newTaskContainer-button');
 newTaskButton.textContent = 'Add Task';
 newTaskButton.addEventListener('click', showModal);
 WorkArea.append(newTaskButton);
-
-const newTaskInputContainer = createElement(
-  'div',
-  'WorkArea__newTaskContainer',
-  'display-none'
-);
-
-const cancelButton = createElement(
-  'button',
-  'WorkArea__newTaskContainer-button--cancel'
-);
-cancelButton.textContent = 'x';
-cancelButton.addEventListener('click', hideNewTaskInput);
-
-const submitButton = createElement(
-  'button',
-  'WorkArea__newTaskContainer-button--submit'
-);
-submitButton.textContent = '✓';
-submitButton.addEventListener('click', submitNewTaskInput);
-
-const newTaskInput = createElement('input');
-newTaskInput.type = 'text';
-newTaskInputContainer.append(newTaskInput, submitButton, cancelButton);
-WorkArea.append(newTaskInputContainer, newTaskButton);
-
-// new task input functions
-function hideNewTaskInput() {
-  newTaskInputContainer.classList.add('display-none');
-}
-
-function showNewTaskInput() {
-  newTaskInputContainer.classList.remove('display-none');
-}
-
-function submitNewTaskInput() {
-  let inputSource = newTaskInputContainer.querySelector('input');
-  let taskName = inputSource.value;
-  inputSource.value = '';
-
-  let newTask = Controller.createTask(Controller.currentProject, taskName);
-  addTaskToView(newTask);
-  hideNewTaskInput();
-}
 
 function addTaskToView(task) {
   let itemContainer = createElement('div', 'WorkArea__taskList-item');
@@ -167,13 +103,16 @@ function hideTaskPopout() {
 /* Task Modal Input Submitting
 _____________________________________*/
 const taskSubmit = TaskModal.querySelector('.TaskModal__submit');
-console.log(taskSubmit);
 taskSubmit.addEventListener('click', submitNewTask);
 
 function submitNewTask(e) {
   let inputs = TaskModal.querySelectorAll('input');
   let vals = Array.from(inputs).map((entry) => entry.value);
-  let newTask = new Task(...vals);
+  console.log(vals);
+  let title = vals[0];
+  let description = vals[1];
+  let date = vals[2];
+  let newTask = new Task(title, description, date);
 
   Controller.createTask(Controller.currentProject, newTask);
   addTaskToView(newTask);

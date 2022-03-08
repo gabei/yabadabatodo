@@ -14,7 +14,7 @@ const submitButton = createElement('button', 'TaskModal__submit');
 
 inputTitle.type = 'text';
 inputDescription.type = 'text';
-inputDate.type = 'text';
+inputDate.type = 'date';
 
 submitButton.textContent = 'Create Task';
 
