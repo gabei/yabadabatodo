@@ -6,8 +6,8 @@ Tasks can be added or removed from a Project. Tasks can have their title, descri
 export default class Task {
   constructor(title, description, dueDate) {
     this.title = title || 'New Task';
-    this.description = description || '';
-    this.dueDate = dueDate || '';
+    this.description = description || 'This task has no description.';
+    this.dueDate = dueDate || 'This task has no due date.';
   }
 
   getTitle() {

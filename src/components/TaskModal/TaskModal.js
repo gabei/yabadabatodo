@@ -8,19 +8,27 @@ TaskModal.append(TaskModalContainer);
 const inputTitle = createElement('input', 'TaskModal__title');
 const inputDescription = createElement('input', 'TaskModal__description');
 const inputDate = createElement('input', 'TaskModal__date');
-const submitButton = createElement('button', 'TaskModal__submit');
+const buttonContainer = createElement('div', 'TaskModal__buttons');
+const submitButton = createElement('button', 'TaskModal__buttons--submit');
+const cancelButton = createElement('button', 'TaskModal__buttons--cancel');
 
 inputTitle.type = 'text';
+inputTitle.placeholder = 'Task Name';
+
 inputDescription.type = 'text';
+inputDescription.placeholder = 'Task Description';
+
 inputDate.type = 'date';
 
 submitButton.textContent = 'Create Task';
+cancelButton.textContent = 'Cancel';
+buttonContainer.append(submitButton, cancelButton);
 
 TaskModalContainer.append(
   inputTitle,
   inputDescription,
   inputDate,
-  submitButton
+  buttonContainer
 );
 
 export default TaskModal;

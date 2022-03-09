@@ -12,11 +12,42 @@
 
   &__container {
     background-color: variables.$white;
-    display: block;
-    padding: 3rem;
+    display: grid;
+    padding: 2rem;
+    width: 450px;
 
     & input {
       display: block;
+    }
+  }
+
+  input {
+    margin: 1rem 0;
+    padding: 5px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+
+    & button {
+      color: variables.$white;
+      border: none;
+      cursor: pointer;
+    }
+
+    &--submit {
+      width: 30%;
+      padding: 1rem;
+      margin-top: 1rem;
+      background: variables.$blue--light;
+    }
+
+    &--cancel {
+      width: 30%;
+      padding: 1rem;
+      margin-top: 1rem;
+      background: red;
     }
   }
 }

@@ -31,7 +31,7 @@ deleteProjectButton.addEventListener('click', function (e) {
 
 titleContainer.append(title, editTitle, deleteProjectButton);
 
-/* WorkArea Content Update (Switch Project)
+/* WorkArea Content Update (Upon Switching Projects)
 _______________________________________________*/
 function updateWorkArea() {
   taskList.textContent = '';
@@ -51,7 +51,7 @@ function populateTasks(tasks) {
   });
 }
 
-/* Add Task Button
+/* Add Task Button and Listeners
 _______________________________________________*/
 const newTaskButton = createElement('a', 'WorkArea__newTaskContainer-button');
 newTaskButton.textContent = 'Add Task';
@@ -102,10 +102,13 @@ function hideTaskPopout() {
   TaskPopout.classList.add('display-none');
 }
 
-/* Task Modal Form Submission
+/* Add Task Modal Form Submission
 _______________________________________________*/
-const taskSubmit = TaskModal.querySelector('.TaskModal__submit');
+const taskSubmit = TaskModal.querySelector('.TaskModal__buttons--submit');
+const taskCancel = TaskModal.querySelector('.TaskModal__buttons--cancel');
+
 taskSubmit.addEventListener('click', submitNewTask);
+taskCancel.addEventListener('click', hideModal);
 
 function submitNewTask(e) {
   let inputs = TaskModal.querySelectorAll('input');
