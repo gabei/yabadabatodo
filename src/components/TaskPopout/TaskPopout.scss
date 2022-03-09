@@ -9,4 +9,13 @@
     margin-bottom: 5px;
     border-bottom: 1px solid variables.$black;
   }
+
+  &__description {
+    margin-bottom: 2rem;
+  }
+
+  &__dueDate {
+    font-style: italic;
+    color: variables.$grey--dark;
+  }
 }
