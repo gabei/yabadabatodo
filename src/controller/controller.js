@@ -7,7 +7,6 @@ The constructor holds a 'current project' and 'current task' for the sake of pas
 */
 
 import Project from '../components/Project/Project';
-import Task from '../components/Task/Task';
 import { list } from '../components/Sidebar/Sidebar';
 import { updateWorkArea } from '../components/WorkArea/WorkArea';
 

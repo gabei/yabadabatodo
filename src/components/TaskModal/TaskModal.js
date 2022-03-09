@@ -1,6 +1,4 @@
 import { createElement } from '../../ui/ui';
-import Task from '../Task/Task';
-import Controller from '../../controller/controller';
 import './TaskModal.scss';
 
 const TaskModal = createElement('div', 'TaskModal', 'display-none');

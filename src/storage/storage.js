@@ -5,12 +5,13 @@ If Local Storage is available, user projects and tasks will be saved in JSON whe
 If local storage is not available, the UI should let the user know.
 
 */
-import Controller from '../controller/controller';
+
 import { addProjectToView } from '../components/Sidebar/Sidebar';
 import Task from '../components/Task/Task';
 import Project from '../components/Project/Project';
 
-// variation on MDN's storage test function
+/* Test Storage Availability (MDN Variation)
+_______________________________________________*/
 function storageIsAvailable() {
   try {
     localStorage.setItem('poweron', 'selftest');
@@ -21,7 +22,6 @@ function storageIsAvailable() {
   } catch (error) {
     console.log('Local Storage is not available');
     console.error(error);
-    // tell the user that storage is unavailable
   }
 }
 
@@ -53,7 +53,5 @@ function populateTasks(project, tasks) {
 
   project.setTasks(...newTasks);
 }
-
-function populateFromStorage() {}
 
 export { initStorage };

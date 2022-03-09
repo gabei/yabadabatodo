@@ -1,6 +1,5 @@
 import { createElement } from '../../ui/ui';
 import Controller from '../../controller/controller';
-import { clear } from '../../ui/ui';
 import './Sidebar.scss';
 
 /* Setup sidebar and basic elements
@@ -24,7 +23,6 @@ Sidebar.append(title, list, projectInputContainer, newProjectButton);
 
 /* Setup 'add project' buttons
 _______________________________________________*/
-
 const cancelButton = createElement(
   'button',
   'Sidebar__project-input__button--cancel'
@@ -72,11 +70,4 @@ function addProjectToView(project) {
   list.append(link);
 }
 
-function removeProjectFromSidebar() {
-  let title = Controller.currentProject.getTitle();
-}
-
 export { Sidebar, list, addProjectToView };
-
-import Task from '../Task/Task';
-let testTask = new Task('test task', 'This is a test task');

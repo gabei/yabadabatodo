@@ -6,7 +6,8 @@ import TaskModal from '../TaskModal/TaskModal';
 import Task from '../Task/Task';
 import './WorkArea.scss';
 
-// setup elements
+/* Elements
+_______________________________________________*/
 const WorkArea = createElement('div', 'WorkArea');
 const titleContainer = createElement('div', 'WorkArea__title');
 const title = createElement('h2', 'WorkArea__title-text');
@@ -16,7 +17,8 @@ const taskList = createElement('ul', 'WorkArea__taskList');
 const taskPopout = createElement('div', 'WorkArea__taskPopout');
 WorkArea.append(titleContainer, taskList, taskPopout, TaskModal);
 
-// setup title section
+/* Setup Title Section
+_______________________________________________*/
 title.textContent = 'Temp';
 title.append(deleteProject);
 editTitle.textContent = 'E';
@@ -29,14 +31,14 @@ deleteProjectButton.addEventListener('click', function (e) {
 
 titleContainer.append(title, editTitle, deleteProjectButton);
 
-// workarea content update functions
+/* WorkArea Content Update (Switch Project)
+_______________________________________________*/
 function updateWorkArea() {
   taskList.textContent = '';
   let project = Controller.currentProject;
 
   updateTitle(project.getTitle());
   populateTasks(project.getTasks());
-  //attachClickListener();
 }
 
 function updateTitle(newTitle) {
@@ -49,8 +51,8 @@ function populateTasks(tasks) {
   });
 }
 
-/////////////////////////
-// setup add task button
+/* Add Task Button
+_______________________________________________*/
 const newTaskButton = createElement('a', 'WorkArea__newTaskContainer-button');
 newTaskButton.textContent = 'Add Task';
 newTaskButton.addEventListener('click', showModal);
@@ -100,8 +102,8 @@ function hideTaskPopout() {
   TaskPopout.classList.add('display-none');
 }
 
-/* Task Modal Input Submitting
-_____________________________________*/
+/* Task Modal Form Submission
+_______________________________________________*/
 const taskSubmit = TaskModal.querySelector('.TaskModal__submit');
 taskSubmit.addEventListener('click', submitNewTask);
 
